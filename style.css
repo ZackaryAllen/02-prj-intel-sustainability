@@ -1,1 +1,112 @@
-/* Add your CSS here */
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Timeline section styling for horizontal scrolling */
+.timeline {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: nowrap; /* Prevent wrapping for horizontal scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical overflow */
+  gap: 20px; /* Add spacing between cards */
+  padding: 20px;
+  background-color: #f9f9f9;
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
+}
+
+/* Adjust timeline for smaller screens */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+  }
+
+  .timeline-card {
+    scroll-snap-align: start; /* Snap each card to the top */
+  }
+}
+
+/* Individual timeline card styling */
+.timeline-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+  flex: 0 0 auto; /* Prevent shrinking and set fixed width */
+  width: 300px; /* Fixed width for horizontal scrolling */
+  scroll-snap-align: center; /* Snap each card to the center */
+}
+
+/* Hover effect for cards */
+.timeline-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Lift the card slightly and scale it */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+}
+
+/* Image styling inside cards */
+.timeline-card img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Headings inside cards */
+.timeline-card h2 {
+  color: #0071c5;
+  margin: 10px 0;
+}
+
+.timeline-card h3 {
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Paragraph styling inside cards */
+.timeline-card p {
+  color: #555;
+  font-size: 14px;
+  display: none; /* Hide the paragraph */
+  opacity: 0; /* Start with full transparency */
+  transition: opacity 0.3s ease-in; /* Smooth transition for opacity */
+}
+
+/* Show the paragraph when the card is hovered */
+.timeline-card:hover p {
+  display: block; /* Make the paragraph visible */
+  opacity: 1; /* Fade in the paragraph */
+}
+
+/* Header section styling */
+header {
+  background-color: #0071c5; /* Blue background color */
+  color: white; /* White text for contrast */
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  max-width: 150px; /* Ensure the logo fits well */
+  margin-bottom: 10px;
+}
+
+header h1 {
+  margin: 10px 0;
+}
+
+header p {
+  font-size: 16px;
+  margin: 10px 0;
+}
